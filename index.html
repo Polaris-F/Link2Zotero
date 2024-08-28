@@ -7,7 +7,15 @@
 </head>
 
 <body>
-    <script>if (location.hash) { location.replace(location.hash.substring(1)) }</script>
+    <script>
+        if (location.hash) {
+            location.replace(location.hash.substring(1));
+            setTimeout(function() {
+                window.open('', '_self', '');  // 兼容部分浏览器允许关闭窗口
+                window.close();
+            }, 1000);
+        }
+    </script>
 </body>
 
 </html>
