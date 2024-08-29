@@ -14,7 +14,8 @@ from PIL import Image
 # 使用 RawConfigParser 读取配置文件，保留原始字符串格式
 config = configparser.RawConfigParser()
 config.read(r'config.ini')
-replace_url = config.get('Settings', 'replace_url').strip('"')
+# 将 replace_url 设置为你的目标前缀
+replace_url = "https://polaris-f.github.io/Link2Zotero/#"
 icon_path = Path(config.get('Settings', 'icon_path').strip('"'))
 
 # 检查系统类型并导入相应的通知库
@@ -49,8 +50,8 @@ def process(clip_text: str) -> (str, int): # type: ignore
     pattern = r'(?<!#)(zotero://[^\s]+)'
     # 统计匹配到的链接数量
     link_count = len(re.findall(pattern, clip_text))
-    # 替换匹配到的链接
-    new_text = re.sub(pattern, replace_url, clip_text)
+    # 替换匹配到的链接，加上指定的前缀
+    new_text = re.sub(pattern, lambda m: f"{replace_url}{m.group(0)}", clip_text)
     return new_text, link_count
 
 # 剪贴板监控主函数
