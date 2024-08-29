@@ -26,6 +26,11 @@ pyinstaller --onefile --icon=Link2Zotero_2.ico --noconsole .\CopyReplace\main.py
 笔记支持 Notion Typora Obsidian等兼容Markdown语法的软件。 
 
 
+## 常见问题
+### 1.程序启动图标路径错误
+手动在config.ini中修改图标路径为图标所在全局路径即可。
+![alt text](image.png)
+
 ## 参考
 [notero](https://github.com/dvanoni/notero)
 [zotero-link](https://github.com/flaribbit/zotero-link)
