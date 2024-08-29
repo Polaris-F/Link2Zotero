@@ -43,7 +43,7 @@ def show_Msg_win11(Msg_title="Link2Zotero", Msg_content="未监测到待替换�
         toast(Msg_title, Msg_content)
 
 # 定义处理剪贴板文本的函数，使用正则表达式
-def process(clip_text: str) -> (str, int):
+def process(clip_text: str) -> (str, int): # type: ignore
     # 使用正则表达式匹配 "zotero://" 且前面没有 "#" 的部分
     pattern = r'(?<!#)(zotero://[^\s]+)'
     # 统计匹配到的链接数量
