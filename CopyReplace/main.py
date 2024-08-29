@@ -1,4 +1,5 @@
 import platform
+import subprocess
 import pyperclip
 import time
 import configparser
@@ -76,16 +77,25 @@ def on_quit(icon, item):
 
 def on_restart(icon, item):
     python = sys.executable
-    os.execl(python, python, *sys.argv)
+    icon.stop()  # 停止托盘图标，释放资源
+    
+    # 添加延时，等待资源释放
+    time.sleep(2)  # 等待2秒（你可以根据需要调整时间）
+
+    subprocess.Popen([python] + sys.argv)
+    sys.exit()  # 退出当前进程
 
 # 设置系统托盘图标和菜单
 def setup_tray_icon():
     # 使用本地图片作为托盘图标
-    icon = Icon("Link2Zotero", Image.open(icon_path), "Link2Zotero", Menu(
+    image = Image.open(icon_path)
+    icon = Icon("Link2Zotero", image, "Link2Zotero", Menu(
         MenuItem('Restart', on_restart),
         MenuItem('Quit', on_quit)
     ))
     icon.run()
+    image.close()  # 确保图像文件在使用后被关闭
+
 
 if __name__ == "__main__":
     # 启动剪贴板监控线程

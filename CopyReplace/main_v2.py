@@ -8,14 +8,13 @@ import pystray._win32
 import threading
 from notifypy import Notify
 
-
 def repl(match: re.Match):
     return "https://hichennyang.github.io/zotero-link/#{}".format(match.group())
 
 def main():
     notification = Notify(
         default_notification_application_name = "zotero-link",
-        default_notification_icon = "logo.png"
+        default_notification_icon = "Link2Zotero_2.png"
     )
     # pattern = r"zotero://\S*\)\)"
     pattern = r'(?<!#)(zotero://[^\s]+)'
@@ -44,7 +43,7 @@ def setup(icon: pystray._win32.Icon) -> None:
 if __name__ == "__main__":
     Icon(
         "zotero-link",
-        icon = Image.open("logo.png"),
+        icon = Image.open("Link2Zotero_2.png"),
         title = "zotero-link",
         menu = Menu(
             MenuItem("退出", quit)
