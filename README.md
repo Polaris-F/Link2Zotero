@@ -12,7 +12,7 @@
 
 ## 安装已编译版本
 
-下载对应版本的[压缩包](https://github.com/Link2Zotero/Link2Zotero/releases)，解压后双击运行 `Link2Zotero.exe` 即可。
+下载对应版本的[压缩包](https://github.com/Polaris-F/Link2Zotero/releases)，解压后双击运行 `Link2Zotero.exe` 即可。
 
 ## 手动编译方法
 ```bash
