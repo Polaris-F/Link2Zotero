@@ -6,7 +6,7 @@
 
 本Repo目的是实现从Zotero向其他兼容Markdown语法的软件的笔记复制后，具备从笔记跳转回Zotero的特定位置的能力，也就是实现笔记的反向链接功能。
 
-![alt text](63af2220f943cf705efa3b13f01f72a.png)
+![alt text](imgs/Link2Zotero_inro.png)
 
 
 
